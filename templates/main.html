@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+*{font-family: Montserrat;}
+</style>
+<head>
+    <title>Indie Song Lyric Generator</title>
+</head>
+<form action="{{ url_for('main') }}" method="POST">
+    <fieldset>
+        <legend>Type in a word:</legend>
+        Prompt:
+        <input name="input" type="string" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+</form>
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Your newest hit song:
+           <p style="font-size:14px">{{ result }}</p>
+    {% endif %}
+</div>
+<br>
+<br>
+<br>
+Did you like this project? <br>
+Support on <a href="https://patreon.com/user?u=95181784">Patreon</a> <br>
+Check out the code/model behind the generator on <a href="https://patreon.com/user?u=95181784">GitHub</a> <br>
+Or, visit my <a href="https://patreon.com/user?u=95181784">website</a> for more <br>
+<br>
+<br>
+<br>
+
+</html>
